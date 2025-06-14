@@ -1,0 +1,262 @@
+[
+  {
+    "name": "2006",
+    "type": "Year",
+    "image": "/images/2006.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "1999",
+    "type": "Year",
+    "image": "/images/1999.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "1821",
+    "type": "Year",
+    "image": "/images/1821.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "1990",
+    "type": "Year",
+    "image": "/images/1990.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "2019",
+    "type": "Year",
+    "image": "/images/2019.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "2000",
+    "type": "Year",
+    "image": "/images/2000.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "2011",
+    "type": "Year",
+    "image": "/images/2011.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "2014",
+    "type": "Year",
+    "image": "/images/2014.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "India",
+    "type": "Country",
+    "image": "/images/India.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "UK",
+    "type": "Country",
+    "image": "/images/UK.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Pakistan",
+    "type": "Country",
+    "image": "/images/Pakistan.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "China",
+    "type": "Country",
+    "image": "/images/China.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Russia",
+    "type": "Country",
+    "image": "/images/Russia.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "USSR",
+    "type": "Country",
+    "image": "/images/USSR.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Japan",
+    "type": "Country",
+    "image": "/images/Japan.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Australia",
+    "type": "Country",
+    "image": "/images/Australia.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "New Zealand",
+    "type": "Country",
+    "image": "/images/NewZealand.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "South Korea",
+    "type": "Country",
+    "image": "/images/SouthKorea.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Vietnam",
+    "type": "Country",
+    "image": "/images/Vietnam.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Sri Lanka",
+    "type": "Country",
+    "image": "/images/SriLanka.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Singapore",
+    "type": "Country",
+    "image": "/images/Singapore.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "USA",
+    "type": "Country",
+    "image": "/images/USA.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Italy",
+    "type": "Country",
+    "image": "/images/Italy.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "France",
+    "type": "Country",
+    "image": "/images/France.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Canada",
+    "type": "Country",
+    "image": "/images/Canada.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Germany",
+    "type": "Country",
+    "image": "/images/Germany.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Spain",
+    "type": "Country",
+    "image": "/images/Spain.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Brazil",
+    "type": "Country",
+    "image": "/images/Brazil.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Mexico",
+    "type": "Country",
+    "image": "/images/Mexico.png",
+    "color": "#4f8ef7"
+  },
+ 
+  {
+    "name": "Political",
+    "type": "Type of Event",
+    "image": "/images/Political.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "War",
+    "type": "Type of Event",
+    "image": "/images/War.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Sport",
+    "type": "Type of Event",
+    "image": "/images/Sport.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Natural Disaster",
+    "type": "Type of Event",
+    "image": "/images/NaturalDisaster.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Military",
+    "type": "Type of Event",
+    "image": "/images/Military.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Scientific",
+    "type": "Type of Event",
+    "image": "/images/Scientific.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Exploration",
+    "type": "Type of Event",
+    "image": "/images/Exploration.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Cultural",
+    "type": "Type of Event",
+    "image": "/images/Cultural.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Aviation",
+    "type": "Type of Event",
+    "image": "/images/Aviation.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Legislative",
+    "type": "Type of Event",
+    "image": "/images/Legislative.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Economic",
+    "type": "Type of Event",
+    "image": "/images/Economic.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Medical",
+    "type": "Type of Event",
+    "image": "/images/Medical.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Civil War",
+    "type": "Type of Event",
+    "image": "/images/CivilWar.png",
+    "color": "#4f8ef7"
+  },
+  {
+    "name": "Independence",
+    "type": "Type of Event",
+    "image": "/images/Independence.png",
+    "color": "#4f8ef7"
+  }
+  
+]

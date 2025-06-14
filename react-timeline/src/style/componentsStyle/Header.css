@@ -59,3 +59,19 @@
 .logout-button:hover {
   background: #c53030;
 }
+
+.back-button {
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  color: #F2EFE7;
+  border-radius: 50%;
+  margin-right: auto;
+  align-items: center;
+  
+}
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

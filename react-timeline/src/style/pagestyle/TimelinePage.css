@@ -1,0 +1,123 @@
+/* TimelinePage.css */
+body {
+  margin: 0;
+  background-color: #F2EFE7;
+  overflow-x: auto;
+}
+
+.timeline-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+.app-title {
+  text-align: center;
+}
+
+.timeline-Container{
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.timeline-horizontal {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+  gap: 1rem;
+  scroll-behavior: smooth;
+}
+
+.timeline-card {
+  min-width: 200px;
+  border: 2px solid #47edff6e;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #371f1f;
+}
+
+/* Modal styling */
+.timeline-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.timeline-modal-content {
+  background: #F2EFE7;
+  border-radius: 1rem;
+  border: 3px solid #006A71;
+  padding: 1rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+}
+
+.timeline-modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0e868f;
+}
+
+.timeline-modal-content p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #0e868f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #4fcbd4;
+}

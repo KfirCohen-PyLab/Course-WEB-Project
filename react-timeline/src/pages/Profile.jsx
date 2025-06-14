@@ -141,8 +141,8 @@ const Profile = () => {
               <button onClick={() => setIsEditing(true)} className="edit-button">
                 Edit Profile
               </button>
-              <button onClick={() => navigate('/search')} className="return-button">
-                Return to Search
+              <button onClick={() => navigate('/choose')} className="return-button">
+                Return to Choose
               </button>
             </div>
 

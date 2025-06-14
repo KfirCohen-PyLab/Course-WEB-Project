@@ -40,7 +40,7 @@ const Login = () => {
         localStorage.setItem('userId', data.userId);
         localStorage.setItem('userEmail', data.email);
         // Redirect to search page after successful login
-        navigate('/search');
+        navigate('/choose');
       } else {
         setError(data.message || 'Login failed');
       }

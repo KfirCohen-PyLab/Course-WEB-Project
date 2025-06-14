@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -20,6 +21,21 @@ const Search = () => {
   const [endYear, setEndYear] = useState('');
   const userId = localStorage.getItem('userId');
 
+  const location = useLocation();
+
+useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const queryFromUrl = params.get('query');
+    const start = params.get('startYear') || '';
+    const end = params.get('endYear') || '';
+
+    if (queryFromUrl) {
+      setQuery(queryFromUrl);
+      setStartYear(start);
+      setEndYear(end);
+    }
+  }, [location.search]);
+  
   useEffect(() => {
     if (!query) {
       setFullText('');
@@ -97,6 +113,7 @@ const Search = () => {
 
     fetchTimelineData();
   }, [query, startYear, endYear, navigate, userId]);
+
 
   const getSideImages = (side) => {
     const filteredImages = images.filter(img => img && img.src);

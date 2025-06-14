@@ -7,7 +7,6 @@ const cors = require('cors');
 
 const app = express();
 const port = 4000;
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.text({ type: '*/*' }));
@@ -27,6 +26,7 @@ mongoose.connect('mongodb://localhost:27017/Timeline')
 // Use routes
 const timelineRoutes = require('./routes/timelineRoutes');
 const userRoutes = require('./routes/userRoutes');
+const bubbleTimelineRoutes = require('./routes/bubbleTimelineRoutes');
 
 app.get('/searches', async (req, res) => {
   try {
@@ -41,6 +41,7 @@ app.get('/searches', async (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/', timelineRoutes);
+app.use('/api', bubbleTimelineRoutes);
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

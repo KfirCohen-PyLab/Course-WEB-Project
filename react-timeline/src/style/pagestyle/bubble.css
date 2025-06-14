@@ -1,0 +1,99 @@
+.bubble-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.bubble-container {
+  background-color: #F2EFE7;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: 30px 20px;
+}
+
+/* Bubble button style */
+.bubble {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Animate with variable delay and natural motion */
+  animation: float 10s infinite ease-in-out alternate;
+  animation-delay: calc(var(--delay, 0s) * 1s);
+  left: calc(var(--x, 0) * 1vw);
+  top: calc(var(--y, 0) * 1vh);
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.1);
+}
+
+.bubble-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Float animation mimics soft drifting motion */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-10px, -30px) rotate(2deg) scale(1.05);
+  }
+  50% {
+    transform: translate(10px, -60px) rotate(-2deg) scale(1.1);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(-15px, -90px) rotate(2deg) scale(1.05);
+  }
+  100% {
+    transform: translate(0, -120px) rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.filter-bar {
+  background: none;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-button {
+  background-color: #F2EFE7;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.filter-button:hover {
+  background-color: #d6e6ff;
+}
+
+.filter-button.active {
+  background-color: #006A71;
+  color: white;
+}
