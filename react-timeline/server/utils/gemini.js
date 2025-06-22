@@ -1,8 +1,15 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+/**
+ * @function generateTimelineFromGemini
+ * @desc Uses Gemini (Google Generative AI) to analyze a text and extract historical events.
+ *       The function returns a list of events in JSON format with specific year-based dates and simple summaries.
+ * 
+ * @param {string} text - A block of historical or descriptive text to analyze.
+ * @returns {Promise<Array<{date: string, summary: string}>>} - A list of timeline events.
+ */
 
-//Gemini timeline generation function
 async function generateTimelineFromGemini(text) {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

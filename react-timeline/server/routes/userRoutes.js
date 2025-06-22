@@ -3,7 +3,11 @@ const router = express.Router();
 const User = require('../models/UserModel');
 const LoggedInUser = require('../models/LoggedInUserModel');
 
-// Register new user
+/**
+ * @route   POST /register
+ * @desc    Register a new user. Fails if email already exists.
+ * @body    { email: string, password: string }
+ */
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -26,7 +30,11 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Update user profile
+/**
+ * @route   PUT /profile/:userId
+ * @desc    Update user's email and/or password.
+ * @params  userId: MongoDB ID of the user
+ */
 router.put('/profile/:userId', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -37,7 +45,6 @@ router.put('/profile/:userId', async (req, res) => {
     }
 
     if (email) {
-      // Check if email is already taken by another user
       const emailExists = await User.findOne({ 
         email, 
         _id: { $ne: req.params.userId } 
@@ -65,7 +72,12 @@ router.put('/profile/:userId', async (req, res) => {
   }
 });
 
-// Login user
+/**
+ * @route   POST /login
+ * @desc    Log in a user using email and password.
+ *          Adds user to LoggedInUser collection.
+ * @body    { email: string, password: string }
+ */
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -79,7 +91,10 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    await LoggedInUser.create({ email });
+    const alreadyLoggedIn = await LoggedInUser.findOne({ email });
+    if (!alreadyLoggedIn) {
+      await LoggedInUser.create({ email });
+    }
 
     res.json({
       success: true,
@@ -92,7 +107,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout user
+/**
+ * @route   POST /logout
+ * @desc    Logs the user out by removing from LoggedInUser collection.
+ * @body    { email: string }
+ */
 router.post('/logout', async (req, res) => {
   try {
     const { email } = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
@@ -104,7 +123,11 @@ router.post('/logout', async (req, res) => {
   }
 });
 
-// Get user's search history
+/**
+ * @route   GET /search-history/:userId
+ * @desc    Returns the user's search history (up to 10 most recent terms).
+ * @params  userId: MongoDB user ID
+ */
 router.get('/search-history/:userId', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
@@ -118,7 +141,12 @@ router.get('/search-history/:userId', async (req, res) => {
   }
 });
 
-// Add search to history
+/**
+ * @route   POST /search-history
+ * @desc    Adds a search term to user's history if not already included.
+ *          Maintains up to 10 recent unique search terms.
+ * @body    { userId: string, query: string }
+ */
 router.post('/search-history', async (req, res) => {
   try {
     const { userId, query } = req.body;
@@ -134,7 +162,7 @@ router.post('/search-history', async (req, res) => {
     const searchTerm = query.trim().toLowerCase();
     if (!user.searchHistory.includes(searchTerm)) {
       user.searchHistory.unshift(searchTerm);
-      if (user.searchHistory.length > 10) { // Keep only last 10 searches
+      if (user.searchHistory.length > 10) { 
         user.searchHistory = user.searchHistory.slice(0, 10);
       }
       await user.save();

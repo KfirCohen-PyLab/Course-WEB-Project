@@ -1,10 +1,13 @@
+/* Main timeline wrapper */
 .timeline-container {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 0;
+  box-sizing: border-box;
 }
 
+/* Vertical timeline line (if you use a div for the line) */
 .timeline-line {
   position: absolute;
   top: 0;
@@ -16,7 +19,7 @@
   z-index: 0;
 }
 
-
+/* Timeline event base */
 .timeline-event {
   position: relative;
   width: 50%;
@@ -24,47 +27,48 @@
   box-sizing: border-box;
 }
 
-
+/* Left and right event positioning */
 .timeline-event.left {
   left: 0;
-  text-align: right;
+  text-align: left;
 }
-
 .timeline-event.right {
   left: 50%;
   text-align: left;
 }
 
+/* Event content box */
 .timeline-event .content {
   background-color: #fff;
   padding: 15px;
   border-radius: 8px;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(255, 23, 23, 0.1);
   z-index: 1;
 }
 
-
-.timeline-event::before {
+/* Timeline event dot (centered on the timeline for both sides) */
+.timeline-event.left::before,
+.timeline-event.right::before {
   content: '';
   position: absolute;
-  top: 20px;
+  top: 50%;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #006A71;
-  border: 4px solid #F2EFE7;
+  border: 10px solid #006A71;
   z-index: 2;
+  background: #fff;
+  transform: translate(-50%, -50%);
 }
-
 .timeline-event.left::before {
-  right: -15px;
+  left: 100%;
 }
-
 .timeline-event.right::before {
-  left: -15px;
+  left: 0;
 }
 
+/* Date button styling */
 .date-button {
   background-color: #F2EFE7;
   border: 2px solid #006A71;
@@ -77,17 +81,16 @@
   padding: 10px 15px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 160px;        
-  text-align: center;   
+  width: 160px;
+  text-align: center;
   display: inline-block;
 }
-
 .date-button:hover {
   background-color: #e0ddd4;
   transform: scale(1.03);
 }
 
-
+/* Summary box styling */
 .summary-box {
   background: #f0f0f0;
   padding: 10px;
@@ -95,4 +98,3 @@
   margin-top: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-

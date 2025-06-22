@@ -1,4 +1,4 @@
-.search-container {
+.search-bar {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -79,16 +79,3 @@
   border-radius: 4px;
 }
 
-button {
-  padding: 8px 16px;
-  background: #006A71;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #0056b3;
-}

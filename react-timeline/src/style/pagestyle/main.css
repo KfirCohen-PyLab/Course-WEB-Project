@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F2EFE7;
+  overflow-x: auto; 
+}
+
+.bubble-page,
+.choose-page,
+.search-page,
+.profile-main-page,
+.timeline-page,
+.login-page,
+.register-page,
+.custom-timeline-page,
+.index-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+}
+
+.index-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-buttons-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+/* =========================
+   BUTTON STYLES (GLOBAL)
+   ========================= */
+
+
+/* Base style for all general buttons */
+
+.general-button{
+  padding: 10px 20px;
+  color: white;
+  background: #006A71;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+
+
+/* Login button (used on login forms) */
+#btnRegister,
+#btnLogin {
+  width: 100%;
+  background-color: #2196F3;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Shared hover effect for register and login buttons */
+.general-button:hover {
+  background-color: #66ff00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 106, 113, 0.3);
+}
+
+/* =========================
+   SPECIAL BUTTONS (INDEX PAGE)
+   ========================= */
+
+/* Bubble button base style */
+.index-bubble-button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0, 106, 113, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Primary bubble button */
+.index-bubble-button.primary {
+  background-color: #006A71;
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 106, 113, 0.3);
+}
+
+/* Secondary bubble button */
+.index-bubble-button.secondary {
+  border: 3px solid #006A71;
+  background-color: transparent;
+  color: #006A71;
+}
+
+/* Shared hover for bubble buttons */
+.index-bubble-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 106, 113, 0.4);
+}
+
+/* Secondary bubble button hover override */
+.index-bubble-button.secondary:hover {
+  background-color: #006A71;
+  color: white;
+}
+/* when hoveing will become the color of the background and the border will be green */
+.index-bubble-button.primary:hover {
+    background-color: #F2EFE7;
+    color: #006A71;
+    border: #006A71 3px solid;
+    }
+
+/* =========================
+   END BUTTON STYLES
+   ========================= */
+
+.index-description {
+    text-align: center;
+    color: #006A71;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Login Page Styles */
+
+.form-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 106, 113, 0.2);
+    background-color: white;
+}
+
+.form-container h2 {
+    color: #006A71;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #006A71;
+}
+
+.link {
+    color: #004a4f;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #006A71;
+}
+
+.app-title{
+  font-size: 3rem;
+  font-weight: 800;
+  color: #006A71;
+  margin-bottom: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+

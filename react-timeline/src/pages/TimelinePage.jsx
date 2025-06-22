@@ -5,6 +5,27 @@ import Footer from "../components/common/Footer";
 import "../style/pagestyle/TimelinePage.css";
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * TimelinePage Component
+ *
+ * Displays a dynamic timeline of historical events based on a selected topic and type.
+ * The topic and type are stored in localStorage and fetched on component mount.
+ *
+ * Features:
+ * - Loads timeline data for a specific topic and type from the backend
+ * - Displays event details in a modal with additional metadata
+ * - Provides external links to 'On This Day' pages based on the event date
+ * - Offers quick navigation to a search page for any event
+ *
+ * Hooks used:
+ * - useState: Manages component state (data, sorting, selection, color)
+ * - useEffect: Triggers data fetching and initialization logic on mount
+ *
+ * External dependencies:
+ * - LocalStorage: Reads topic and type selected from previous page
+ * - Backend API: `/api/dataset` endpoint for timeline data
+ * - onthisday.com: Generates links to external date-based history pages
+ */
 
 const TimelinePage = () => {
   const [topic, setTopic] = useState(null);
@@ -31,7 +52,7 @@ const TimelinePage = () => {
 
     setLoading(true);
 
-    fetch(`http://localhost:4000/api/dataset?topic=${encodeURIComponent(storedTopic)}&type=${encodeURIComponent(storedType)}`)
+    fetch(`${process.env.REACT_APP_API}/api/dataset?topic=${encodeURIComponent(storedTopic)}&type=${encodeURIComponent(storedType)}`)
 
       .then((res) => {
         if (!res.ok) {
@@ -54,9 +75,6 @@ const TimelinePage = () => {
 
   const handleSort = () => setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   const handleColorChange = (e) => setColor(e.target.value);
-  const handleExportPDF = () => {
-    alert("Export to PDF not implemented yet.");
-  };
 
   const sortedTimeline = [...timeline].sort((a, b) => {
     const aDate = new Date(`${a.Month || "January"} ${a.Date || 1}, ${a.Year}`);
@@ -110,12 +128,9 @@ const TimelinePage = () => {
         <h1 className="app-title"> {topic} Timeline </h1>
 
       {/* Controls */}
-      <div className="button-container">
-        <button onClick={handleSort} className="btn">
+      <div className="button-group">
+        <button onClick={handleSort} className="general-button">
           {sortOrder === "asc" ? "Past → Future" : "Future → Past"}
-        </button>
-        <button onClick={handleExportPDF} className="btn">
-          Export to PDF
         </button>
         <input
           type="color"
@@ -172,25 +187,27 @@ const TimelinePage = () => {
             <p><strong>Affected Population:</strong> {selectedEvent["Affected Population"]}</p>
             <p><strong>Important Person/Group Responsible:</strong> {selectedEvent["Important Person/Group Responsible"]}</p>
             <p><strong>Outcome:</strong> {selectedEvent.Outcome}</p>
-            <button onClick={() => setSelectedEvent(null)} className="btn">Close</button>
-            {(selectedEvent.Year || selectedEvent.Month || selectedEvent.Date) && (
-              <a
-                href={generateOnThisDayLink(selectedEvent)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn no-underline"
+            <div className="button-group">
+              <button onClick={() => setSelectedEvent(null)} className="general-button">Close</button>
+              {(selectedEvent.Year || selectedEvent.Month || selectedEvent.Date) && (
+                <a
+                  href={generateOnThisDayLink(selectedEvent)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="general-button"
+                >
+                  View on OnThisDate
+                </a>
+              )}
+              <button
+                className="general-button"
+                onClick={() =>
+                  navigate(`/search?query=${encodeURIComponent(selectedEvent["Name of Incident"])}`)
+                }
               >
-                View on OnThisDate
-              </a>
-            )}
-            <button
-              className="btn"
-              onClick={() =>
-                navigate(`/search?query=${encodeURIComponent(selectedEvent["Name of Incident"])}`)
-              }
-            >
-              Search for more
-            </button>
+                Search for more
+              </button>
+            </div>
               
           </div>
         </div>

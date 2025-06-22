@@ -1,9 +1,4 @@
-.bubble-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-}
+
 
 .bubble-container {
   background-color: #F2EFE7;
@@ -13,6 +8,7 @@
   margin: 0 auto;
   border-radius: 16px;
   padding: 30px 20px;
+  flex: 1;
 }
 
 /* Bubble button style */
@@ -75,25 +71,8 @@
   background: none;
   display: flex;
   justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
 }
 
-.filter-button {
-  background-color: #F2EFE7;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
 
-.filter-button:hover {
-  background-color: #d6e6ff;
-}
-
-.filter-button.active {
-  background-color: #006A71;
-  color: white;
-}

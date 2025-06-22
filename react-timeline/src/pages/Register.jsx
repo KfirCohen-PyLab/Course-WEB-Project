@@ -2,7 +2,23 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
-import '../style/pagestyle/index.css';
+import '../style/pagestyle/main.css';
+
+/**
+ * Register Component
+ *
+ * This component provides a registration form for new users to create an account.ד
+ * On successful registration, the user is redirected to the login page.
+ *
+ * Features:
+ * - Input validation to ensure passwords match before submitting
+ * - Displays success and error messages
+ * - Navigates to login page after successful registration with a delay
+ *
+ * Hooks used:
+ * - useState: Manages form input values, error, and success states
+ * - useNavigate: Handles navigation to other routes
+ */
 
 const Register = () => {
   const navigate = useNavigate();
@@ -32,7 +48,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:4000/api/users/register', {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +75,7 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="register-page">
       <Header />
       <div className="form-container">
         <h2>Create an Account</h2>
@@ -99,7 +115,7 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">
+          <button id="btnRegister" type="submit" className="general-button">
             Register
           </button>
         </form>

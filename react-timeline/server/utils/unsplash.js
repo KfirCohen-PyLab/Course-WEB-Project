@@ -1,7 +1,15 @@
 const fetch = require('node-fetch');
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
-// Function to fetch images from Unsplash based on the query
+/**
+ * @function fetchUnsplashImages
+ * @description Fetches a list of image URLs from the Unsplash API based on a search query.
+ *              This function is used to retrieve relevant images to visually enrich timeline results.
+ * 
+ * @param {string} query - The search term (e.g., "Italy", "World War II").
+ * @returns {Promise<Array<{src: string, alt: string}>>} - A list of image objects containing image source URL and alt text.
+ */
+
 async function fetchUnsplashImages(query) {
   const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=20`;
   try {

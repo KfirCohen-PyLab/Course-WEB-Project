@@ -2,45 +2,50 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
-import '../style/pagestyle/index.css';
+import '../style/pagestyle/main.css';
+
+/**
+ * Index Component
+ *
+ * This is the landing page of the HistoryFlow app, welcoming users and providing
+ * navigation options to either login or register.
+ *
+ * Features:
+ * - Displays a welcome message and app description
+ * - Provides two primary action buttons: Login and Register
+ * - Uses React Router's useNavigate hook for client-side navigation
+ *
+ * Hooks used:
+ * - useNavigate: To programmatically navigate to login or register routes
+ */
 
 const Index = () => {
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    navigate('/login');
-  };
+  const goToLogin = () => navigate('/login');
+  const goToRegister = () => navigate('/register');
 
-  const handleRegisterClick = () => {
-    navigate('/register');
-  };
   return (
-    <div className="index-container">
+    <div className="index-page">
       <Header />
-      <div className="index-content">
+      <main className="index-content">
         <h1 className="app-title">Welcome to HistoryFlow</h1>
         
         <div className="index-buttons-container">
-          <button 
-            onClick={handleLoginClick}
-            className="index-bubble-button primary"
-          >
+          <button onClick={goToLogin} className="index-bubble-button primary">
             Login
           </button>
 
-          <button 
-            onClick={handleRegisterClick}
-            className="index-bubble-button secondary"
-          >
+          <button onClick={goToRegister} className="index-bubble-button secondary">
             Register
           </button>
         </div>
 
-        <div className="index-description">
+        <section className="index-description">
           <p>Discover historical events and timelines through our interactive search platform.</p>
           <p>Login to access your personalized timeline searches or register to get started!</p>
-        </div>
-      </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );

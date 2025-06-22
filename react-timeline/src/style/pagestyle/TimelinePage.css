@@ -1,26 +1,13 @@
 /* TimelinePage.css */
-body {
-  margin: 0;
-  background-color: #F2EFE7;
-  overflow-x: auto;
-}
 
-.timeline-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-}
-.app-title {
-  text-align: center;
-}
 
 .timeline-Container{
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   border-radius: 16px;
+  flex:1;
+  padding-left: 1rem;   /* Add left margin */
+  padding-right: 1rem;
 }
 
 .timeline-horizontal {
@@ -29,6 +16,8 @@ body {
   padding: 1rem 0;
   gap: 1rem;
   scroll-behavior: smooth;
+  padding-left: 1rem;   /* Add left margin */
+  padding-right: 1rem;
 }
 
 .timeline-card {
@@ -98,26 +87,20 @@ body {
   line-height: 1.4;
 }
 
-/* Buttons */
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  background-color: #0e868f;
-  color: white;
-  padding: 0.5rem 1rem;
+a.general-button {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #006A71;
+  border-radius: 5px;
   border: none;
-  border-radius: 0.6rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-right: 0.5rem;
-  text-decoration: none;
+  font-weight: 600;
+  text-decoration: none; /* Remove underline for links */
+  display: inline-block; /* Make <a> behave like a button */
+  transition: background 0.2s;
 }
 
-.btn:hover {
-  background-color: #4fcbd4;
+.general-button:hover,
+a.general-button:hover {
+  background-color: #1769aa;
 }

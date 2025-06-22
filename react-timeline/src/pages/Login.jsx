@@ -2,7 +2,22 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
-import '../style/pagestyle/index.css';
+import '../style/pagestyle/main.css';
+
+/**
+ * Login Component
+ *
+ * This component is a login form that lets users enter email and password to authenticate.
+ * On success, it saves user data to localStorage and redirects to the choose page.
+ *
+ * Features:
+ * - Displays error messages on failed login or server connection issues
+ * - Navigates to registration page via a clickable link for new users
+ *
+ * Hooks used:
+ * - useState: Manages form inputs, loading state, and error messages
+ * - useNavigate: Programmatic navigation on login success or link click
+ */
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,7 +26,7 @@ const Login = () => {
     password: ''
   });
   const [error, setError] = useState('');
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -23,9 +38,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:4000/api/users/login', {
+      const response = await fetch(`${process.env.REACT_APP_API}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,23 +50,23 @@ const Login = () => {
       });
 
       const data = await response.json();
+      setIsLoading(false);
 
       if (response.ok && data.success) {
-        // Store user info in localStorage
         localStorage.setItem('userId', data.userId);
         localStorage.setItem('userEmail', data.email);
-        // Redirect to search page after successful login
         navigate('/choose');
       } else {
         setError(data.message || 'Login failed');
       }
     } catch (err) {
+      setIsLoading(false);
       setError('Error connecting to server');
     }
   };
-
+  
   return (
-    <div className="login-container">
+    <div className="login-page">
       <Header />
       <div className="form-container">
         <h2>Login to Your Account</h2>
@@ -78,8 +94,8 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">
-            Login
+          <button id="btnLogin" type="submit" className="general-button" disabled={isLoading }>
+            {isLoading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
         <p className="register-link">
