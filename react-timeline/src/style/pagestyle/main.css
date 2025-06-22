@@ -188,4 +188,20 @@ body {
   text-align: center;
 }
 
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.success-message {
+  text-align: center;
+  color: #155724;
+  background-color: #d4edda;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
 
