@@ -77,9 +77,7 @@ const Profile = () => {
     <div className="profile-main-page">
       <Header />
       <div className="profile-container">
-        <div className="profile-header">
           <h2 className="app-title"> My Profile</h2>
-        </div>
 
         {success && <div className="success-message">{success}</div>}
         {error && <div className="error-message">{error}</div>}
